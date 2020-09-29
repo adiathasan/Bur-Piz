@@ -11,6 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import Modal from "./components/Modal";
 import useContextValue from "./data/ContextApi";
 import { SET_MODAL_CLOSE } from "./varibles";
+import Burger from "./components/Burger";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,9 @@ function App() {
         <Switch location={location} key={location.key}>
           <Route exact path="/order">
             <Order motion={motion} />
+          </Route>
+          <Route exact path="/burger">
+            <Burger />
           </Route>
           <Route exact path="/toppings">
             <Toppings motion={motion} />

@@ -16,7 +16,7 @@ const childVariants = {
 
 const Order = ({ motion }) => {
   const { dispatch, state } = useContextValue();
-  const { pizza } = state;
+  const { pizza, burger } = state;
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,12 +33,20 @@ const Order = ({ motion }) => {
       exit="exit"
       className="order"
     >
-      <h2>Thank you for your order 🍕</h2>
+      <h2>Thank you for your order 🍕 🍔 </h2>
       <motion.p variants={childVariants}>
-        You ordered a <span>{pizza.base}</span> pizza with:
+        You ordered a <span>{pizza.base}</span>
+        <span>pizza {burger && " & burger"}</span> with:
       </motion.p>
       <motion.div variants={childVariants}>
         {pizza.toppings?.map((topping) => (
+          <div key={topping} className="order__toppings">
+            {"> " + topping}
+          </div>
+        ))}
+      </motion.div>
+      <motion.div variants={childVariants}>
+        {burger?.map((topping) => (
           <div key={topping} className="order__toppings">
             {"> " + topping}
           </div>

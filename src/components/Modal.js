@@ -48,7 +48,7 @@ const Modal = () => {
             variants={modalVariants}
             className="modal__center"
           >
-            <p>Want to make another pizza? </p>
+            <p>Want to make another pizza or burger? </p>
             <motion.button
               onClick={() => history.push("/")}
               variants={btnVariants}

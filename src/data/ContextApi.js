@@ -5,7 +5,7 @@ import {
   SET_PIZZA_TOPPINGS,
   SET_PIZZA_BASE,
   SET_MODAL_OPEN,
-  SET_MODAL_CLOSE,
+  SET_MODAL_CLOSE, SET_BURGER
 } from "../varibles";
 const contextApi = createContext();
 const reducer = (state, action) => {
@@ -18,6 +18,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         pizza: { ...state.pizza, toppings: action.topping },
+      };
+    case SET_BURGER:
+      return {
+        ...state,
+        burger: action.ingredient,
       };
     case SET_PIZZA_BASE:
       return {
@@ -43,6 +48,7 @@ export const ContextApiProvider = ({ children }) => {
     user: null,
     pizza: { base: "", toppings: [] },
     isModalOpen: false,
+    burger: []
   });
   return (
     <contextApi.Provider value={{ dispatch, state }}>

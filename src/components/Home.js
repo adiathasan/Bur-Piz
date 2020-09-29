@@ -35,7 +35,7 @@ const Home = ({ motion }) => {
       exit="exit"
       className="home"
     >
-      <h2>Welcome to Bug-Piz</h2>
+      <h2>Welcome to Bur-Piz</h2>
       <Loader />
       <Link to="/base" className="home__base">
         <motion.button variants={btnVariant} whileHover="hover">
