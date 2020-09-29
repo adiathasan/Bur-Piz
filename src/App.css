@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  letter-spacing: 2px;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background: rgb(100, 0, 123);
+  background: radial-gradient(
+    circle,
+    rgb(136, 37, 158) 0%,
+    rgba(62, 20, 86, 1) 100%
+  );
+  overflow: hidden;
+}
+
+ul,
+h1,
+h2,
+h3,
+p,
+button,
+a,
+div {
+  margin: 0;
+  padding: 0;
+  color: white;
+  letter-spacing: 2px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.loader {
+  background: white;
+  margin-top: 10px;
+  height: 10px;
+  width: 10px;
+  border-radius: 999px;
+}

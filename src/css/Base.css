@@ -1,0 +1,36 @@
+.base {
+  margin-top: 3rem;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 240px;
+}
+
+.base > h2 {
+  padding-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(139, 137, 133, 0.527);
+}
+
+.base > ul > li {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.active {
+  transform: scale(1.25);
+  font-weight: 500;
+}
+
+.base > button {
+  cursor: pointer;
+  background: transparent;
+  margin-top: 1.2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 999px;
+  font-size: large;
+  border: 2px solid rgb(255, 255, 255);
+  outline: none;
+}

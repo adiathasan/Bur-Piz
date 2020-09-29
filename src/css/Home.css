@@ -1,0 +1,18 @@
+.home {
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.home > a > button {
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: 2px solid rgb(255, 255, 255);
+}

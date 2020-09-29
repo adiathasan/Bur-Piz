@@ -1,0 +1,20 @@
+.order {
+  margin-top: 3rem;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 240px;
+  text-align: center;
+}
+
+.order > p > span {
+  font-size: 1.1rem;
+  color: #fde350;
+}
+
+.order > div > div {
+  margin-top: 0.2rem;
+  color: #fdc377;
+}
