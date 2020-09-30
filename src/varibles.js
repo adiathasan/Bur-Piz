@@ -12,6 +12,10 @@ const SET_MODAL_CLOSE = "SET_MODAL_CLOSE";
 
 const SET_BURGER = "SET_BURGER";
 
+const SET_USER = "SET_USER";
+
+const UNSET_USER = "UNSET_USER";
+
 export {
   USER_SIGNED_UP,
   USER_SIGNED_OUT,
@@ -20,4 +24,6 @@ export {
   SET_MODAL_OPEN,
   SET_MODAL_CLOSE,
   SET_BURGER,
+  SET_USER,
+  UNSET_USER,
 };

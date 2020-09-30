@@ -21,3 +21,36 @@
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
+.header__auth {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__auth > button {
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+
+  padding: 0.5rem 0.5rem;
+  border-radius: 999px;
+  font-size: large;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.avatar {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 100px 20px rgba(255, 255, 255, 0.712);
+}
+
+.avatar:hover {
+  transform: scale(1.09);
+}
+@media (max-width: 465px) {
+  .header h1 {
+    display: none;
+  }
+}

@@ -12,12 +12,12 @@ const Burger = () => {
   const history = useHistory();
   const [ingredient, setIngredient] = useState([]);
   const handleToppings = (item) => {
-    if (ingredient.includes(item)) {
-      let arr = ingredient.filter((cheese) => item !== cheese);
-      setIngredient(arr);
-    } else {
-      setIngredient([...ingredient, item]);
-    }
+    // if (ingredient.includes(item)) {
+    //   let arr = ingredient.filter((cheese) => item !== cheese);
+    //   setIngredient(arr);
+    // } else {
+    // }
+    setIngredient([...ingredient, item]);
   };
   const variants = {
     hidden: {
@@ -52,18 +52,15 @@ const Burger = () => {
           <div className="burger__images">
             <motion.img layout src="/images/top.png" alt="burger__shit" />
             {ingredient.length > 0 ? (
-              ingredients.map(
-                (item, i) =>
-                  ingredient.includes(item) && (
-                    <motion.img
-                      variants={variants}
-                      layout
-                      key={i}
-                      src={`/images/${item}.png`}
-                      alt="burger__shit"
-                    />
-                  )
-              )
+              ingredient.map((item, i) => (
+                <motion.img
+                  variants={variants}
+                  layout
+                  key={i}
+                  src={`/images/${item}.png`}
+                  alt="burger__shit"
+                />
+              ))
             ) : (
               <h2>nothing selected</h2>
             )}

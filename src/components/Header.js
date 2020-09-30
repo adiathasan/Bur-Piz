@@ -1,7 +1,13 @@
+import { auth, provider } from "../config/firebaseSetup";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "../css/Header.css";
+import { btnVariants } from "./Base";
+import useContextValue from "../data/ContextApi";
+import { SET_USER, UNSET_USER } from "../varibles";
+import { Avatar } from "@material-ui/core";
+import useAuth from "../hooks/useAuth";
 
 const variants = {
   initial: {
@@ -14,6 +20,8 @@ const variants = {
     },
   },
 };
+
+const useUser = useAuth();
 
 const pathVariance = {
   initial: {
@@ -29,8 +37,29 @@ const pathVariance = {
     },
   },
 };
-const Header = ({ motion }) => {
+const Header = () => {
+  const { dispatch, state } = useContextValue();
+  const { user } = state;
   const history = useHistory();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      user &&
+        dispatch({
+          type: SET_USER,
+          user: {
+            user_name: user?.displayName,
+            user_email: user?.email,
+            user_phone: user?.phoneNumber,
+            user_photo: user?.photoURL,
+          },
+        });
+    });
+  }, [user]);
+
+  const handleAuth = () => {
+    auth.signInWithPopup(provider).then(({ user }) => {});
+  };
   return (
     <div className="header">
       <motion.div
@@ -71,6 +100,36 @@ const Header = ({ motion }) => {
       >
         <h1>Bur-Piz</h1>
       </motion.div>
+      <div className="header__auth">
+        {<Avatar className="avatar" src={user?.user_photo} />}
+        {!user ? (
+          <motion.button
+            variants={btnVariants}
+            whileHover="hover"
+            initial="hidden"
+            animate="visible"
+            onClick={handleAuth}
+          >
+            sign-up
+          </motion.button>
+        ) : (
+          <motion.button
+            onClick={() =>
+              auth.signOut().then(() => {
+                dispatch({
+                  type: UNSET_USER,
+                });
+              })
+            }
+            whileHover="hover"
+            initial="hidden"
+            animate="visible"
+            variants={btnVariants}
+          >
+            sign-out
+          </motion.button>
+        )}
+      </div>
     </div>
   );
 };

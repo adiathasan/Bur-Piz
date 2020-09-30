@@ -5,7 +5,10 @@ import {
   SET_PIZZA_TOPPINGS,
   SET_PIZZA_BASE,
   SET_MODAL_OPEN,
-  SET_MODAL_CLOSE, SET_BURGER
+  SET_MODAL_CLOSE,
+  SET_BURGER,
+  SET_USER,
+  UNSET_USER,
 } from "../varibles";
 const contextApi = createContext();
 const reducer = (state, action) => {
@@ -39,6 +42,16 @@ const reducer = (state, action) => {
         ...state,
         isModalOpen: false,
       };
+    case SET_USER:
+      return {
+        ...state,
+        user: action.user,
+      };
+    case UNSET_USER:
+      return {
+        ...state,
+        user: null,
+      };
     default:
       return state;
   }
@@ -48,7 +61,8 @@ export const ContextApiProvider = ({ children }) => {
     user: null,
     pizza: { base: "", toppings: [] },
     isModalOpen: false,
-    burger: []
+    burger: [],
+    user: null,
   });
   return (
     <contextApi.Provider value={{ dispatch, state }}>
